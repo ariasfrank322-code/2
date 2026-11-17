@@ -4,15 +4,15 @@ import requests
 from flask import Flask, jsonify, request
 
 # ---- config ---------------------------------------------------------------
-PACKAGE_ID = os.environ.get("CP_PACKAGE", "com.example.name123")      # FILL
+PACKAGE_ID = os.environ.get("CP_PACKAGE", "com.DefaultCompany.IDRK")      # FILL
 SECRET     = os.environ["CP_SECRET"].encode()
 META_TOKEN = f"OC|{os.environ.get('META_APP_ID','')}|{os.environ.get('META_APP_SECRET','')}"
 PF_TITLE   = os.environ.get("PLAYFAB_TITLE_ID", "")
 PF_SECRET  = os.environ.get("PLAYFAB_SECRET", "")
 BUILDS     = Path("builds")           # builds/<version>/base.apk, main.obb (optional), build.json {"buildGuid": "..."}
-CERTS      = {"c8a2e9bc..."}          # FILL: signing cert sha256, lowercase hex (empty/placeholder = everything denied)
+CERTS = {"5bf2ed5c1cccd32554106a9bbbc36645f22a0f9d7f4b2921ce39b9714421b201"}# FILL: signing cert sha256, lowercase hex (empty/placeholder = everything denied)
 INSTALLER_OK = set()                  # FILL: empty = don't enforce
-MIN_SDK    = 29                       # FILL
+MIN_SDK    = 25                       # FILL
 DEVICE_OK  = {"Basic", "Advanced"}    # FILL: only "NotTrusted" seen in docs
 APP_OK     = {"StoreRecognized"}      # FILL: only "NotEvaluated" seen in docs
 ON = dict(meta=True, custom=True, build=True, sig=True, frida=True, root=True, lib=True, os=True, repack=True)
